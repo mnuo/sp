@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.order.mapper.OmRefundMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.order.entity.OmRefund">
+		<id column="fd_id" property="fdId" />
+		<result column="pay_id" property="payId" />
+		<result column="order_id" property="orderId" />
+		<result column="order_detail_id" property="orderDetailId" />
+		<result column="refund_complate_time" property="refundComplateTime" />
+		<result column="refund_time" property="refundTime" />
+		<result column="refund_amount" property="refundAmount" />
+		<result column="refund_status" property="refundStatus" />
+		<result column="reference1" property="reference1" />
+		<result column="reference2" property="reference2" />
+		<result column="reference3" property="reference3" />
+		<result column="reference4" property="reference4" />
+		<result column="reference5" property="reference5" />
+	</resultMap>
+
+</mapper>

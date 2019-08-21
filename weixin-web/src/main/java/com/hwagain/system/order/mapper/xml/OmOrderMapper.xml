@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.order.mapper.OmOrderMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.order.entity.OmOrder">
+		<id column="fd_id" property="fdId" />
+		<result column="order_date" property="orderDate" />
+		<result column="user_id" property="userId" />
+		<result column="amount" property="amount" />
+		<result column="pay_status" property="payStatus" />
+		<result column="from_type" property="fromType" />
+		<result column="reference1" property="reference1" />
+		<result column="reference2" property="reference2" />
+		<result column="reference3" property="reference3" />
+		<result column="reference4" property="reference4" />
+		<result column="reference5" property="reference5" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="creator_id" property="creatorId" />
+		<result column="create_date" property="createDate" />
+		<result column="last_update_id" property="lastUpdateId" />
+		<result column="last_update_date" property="lastUpdateDate" />
+	</resultMap>
+
+</mapper>

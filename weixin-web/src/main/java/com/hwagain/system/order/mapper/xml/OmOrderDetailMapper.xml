@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.order.mapper.OmOrderDetailMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.order.entity.OmOrderDetail">
+		<id column="fd_id" property="fdId" />
+		<result column="order_list_id" property="orderListId" />
+		<result column="area_type" property="areaType" />
+		<result column="type" property="type" />
+		<result column="dishe_id" property="disheId" />
+		<result column="dishe_name" property="disheName" />
+		<result column="price" property="price" />
+		<result column="number" property="number" />
+		<result column="amount" property="amount" />
+	</resultMap>
+
+</mapper>

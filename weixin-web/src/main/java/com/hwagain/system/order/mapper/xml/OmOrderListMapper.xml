@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.order.mapper.OmOrderListMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.order.entity.OmOrderList">
+		<id column="fd_id" property="fdId" />
+		<result column="order_id" property="orderId" />
+		<result column="fd_date" property="fdDate" />
+		<result column="meal_type" property="mealType" />
+		<result column="from_type" property="fromType" />
+		<result column="dinner_user_name" property="dinnerUserName" />
+		<result column="dinner_user_id" property="dinnerUserId" />
+		<result column="user_name" property="userName" />
+		<result column="user_id" property="userId" />
+		<result column="amount" property="amount" />
+		<result column="pay_status" property="payStatus" />
+		<result column="refund_status" property="refundStatus" />
+		<result column="dinner_status" property="dinnerStatus" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="creator_id" property="creatorId" />
+		<result column="create_date" property="createDate" />
+		<result column="last_update_id" property="lastUpdateId" />
+		<result column="last_update_date" property="lastUpdateDate" />
+	</resultMap>
+    <resultMap id="DtoResultMap" type="com.hwagain.system.order.dto.OmOrderListDto">
+        <id column="fd_id" property="fdId" />
+        <result column="order_id" property="orderId" />
+        <result column="fd_date" property="fdDate" />
+        <result column="meal_type" property="mealType" />
+        <result column="from_type" property="fromType" />
+        <result column="dinner_user_name" property="dinnerUserName" />
+        <result column="dinner_user_id" property="dinnerUserId" />
+        <result column="user_name" property="userName" />
+        <result column="user_id" property="userId" />
+        <result column="amount" property="amount" />
+        <result column="pay_status" property="payStatus" />
+        <result column="refund_status" property="refundStatus" />
+        <result column="dinner_status" property="dinnerStatus" />
+        <result column="remark" property="remark" />
+        <result column="status" property="status" />
+        <result column="creator_id" property="creatorId" />
+        <result column="create_date" property="createDate" />
+        <result column="last_update_id" property="lastUpdateId" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <collection property="details" ofType="com.hwagain.system.order.dto.OmOrderDetailDto">
+            <!-- 定义这个集合中元素的封装规则 -->
+            <id column="did" property="fdId" />
+	        <result column="order_list_id" property="orderListId" />
+	        <result column="area_type" property="areaType" />
+	        <result column="type" property="type" />
+	        <result column="dishe_id" property="disheId" />
+	        <result column="dishe_name" property="disheName" />
+	        <result column="price" property="price" />
+	        <result column="number" property="number" />
+	        <result column="detail_amount" property="amount" />
+        </collection>
+    </resultMap>
+    
+    <select id="findByFromTypeAndStatus" resultMap="DtoResultMap">
+	    select 
+			t.fd_id
+			,t.order_id
+			,t.fd_date
+			,t.meal_type
+			,t.from_type
+			,t.dinner_user_name
+			,t.dinner_user_id
+			,t.user_name
+			,t.user_id
+			,t.amount
+			,t.pay_status
+			,t.refund_status
+			,t.dinner_status
+			,t.remark
+			,t.status
+			,t.creator_id
+			,t.create_date
+			,t.last_update_id
+			,t.last_update_date
+			,t1.fd_id did
+			,t1.order_list_id
+			,t1.area_type
+			,t1.type
+			,t1.dishe_id
+			,t1.dishe_name
+			,t1.price
+			,t1.number
+			,t1.amount detail_amount
+		from om_order_list t left join om_order_detail t1 on t.fd_id=t1.order_list_id
+		where 1=1 
+		<if test="params.fromType != null and params.fromType != ''">
+		  and t.from_type=#{params.fromType}
+		</if>  
+		<if test="params.status != null and params.status != ''">
+          and t.status=#{params.status}
+        </if> 
+        <if test="params.dinnerStatus != null and params.dinnerStatus != ''">
+          and t.dinner_status=#{params.dinnerStatus}
+        </if> 
+        <if test="params.payStatus != null and params.payStatus != ''">
+          and t.pay_status=#{params.payStatus}
+        </if> 
+        <if test="params.refundStatus != null and params.refundStatus != ''">
+          and t.refund_status=#{params.refundStatus}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.recipe.mapper.OmRecipeMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.recipe.entity.OmRecipe">
+		<id column="fd_id" property="fdId" />
+		<result column="fd_date" property="fdDate" />
+		<result column="area_type" property="areaType" />
+		<result column="meal_type" property="mealType" />
+		<result column="meal_type_name" property="mealTypeName" />
+		<result column="type" property="type" />
+		<result column="type_name" property="typeName" />
+		<result column="dishe1_id" property="dishe1Id" />
+		<result column="dishe1_name" property="dishe1Name" />
+		<result column="dishe2_id" property="dishe2Id" />
+		<result column="dishe2_name" property="dishe2Name" />
+		<result column="dishe3_id" property="dishe3Id" />
+		<result column="dishe3_name" property="dishe3Name" />
+		<result column="dishe4_id" property="dishe4Id" />
+		<result column="dishe4_name" property="dishe4Name" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="creator_id" property="creatorId" />
+		<result column="create_date" property="createDate" />
+		<result column="last_update_id" property="lastUpdateId" />
+		<result column="last_update_date" property="lastUpdateDate" />
+		<result column="oa_code" property="oaCode" />
+	</resultMap>
+	<resultMap id="DtoResultMap" type="com.hwagain.system.recipe.dto.OmRecipeDto">
+        <id column="fd_id" property="fdId" />
+        <result column="fd_date" property="fdDate" />
+        <result column="area_type" property="areaType" />
+        <result column="meal_type" property="mealType" />
+        <result column="meal_type_name" property="mealTypeName" />
+        <result column="type" property="type" />
+        <result column="type_name" property="typeName" />
+        <result column="dishe1_id" property="dishe1Id" />
+        <result column="dishe1_name" property="dishe1Name" />
+        <result column="dishe2_id" property="dishe2Id" />
+        <result column="dishe2_name" property="dishe2Name" />
+        <result column="dishe3_id" property="dishe3Id" />
+        <result column="dishe3_name" property="dishe3Name" />
+        <result column="dishe4_id" property="dishe4Id" />
+        <result column="dishe4_name" property="dishe4Name" />
+        <result column="remark" property="remark" />
+        <result column="status" property="status" />
+        <result column="creator_id" property="creatorId" />
+        <result column="create_date" property="createDate" />
+        <result column="last_update_id" property="lastUpdateId" />
+        <result column="last_update_date" property="lastUpdateDate" />
+        <result column="oa_code" property="oaCode" />
+        <result column="price" property="price" />
+    </resultMap>
+    <resultMap id="RpsDtoResultMap" type="com.hwagain.system.recipe.dto.RecipeRpsDto">
+        <result column="area_type" property="areaType" />
+        <result column="meal_type" property="mealType" />
+        <result column="meal_type_name" property="mealTypeName" />
+        <result column="type" property="type" />
+        <result column="type_name" property="typeName" />
+        <result column="dishe_id" property="disheId" />
+        <result column="dishe_name" property="disheName" />
+        <result column="price" property="price" />
+    </resultMap>
+
+    
+    <select id="findByParams" resultMap="DtoResultMap">
+	    select t.*, t1.price
+	    from om_recipe t 
+	    left join om_price t1 on t1.type=t.type and t1.user_type=#{params.userType}
+	    where t.status=30 
+	    <if test="params.fdDate != null and params.fdDate != ''">
+	        and t.fd_date=#{params.fdDate}
+	    </if>
+	    <if test="params.areaType != null and params.areaType != ''">
+	        and area_type=#{params.areaType}
+	    </if>
+	     <if test="params.mealType != null and params.mealType != ''">
+            and meal_type=#{params.mealType}
+        </if>
+    </select>
+    <select id="findBaseDisheByType" resultMap="RpsDtoResultMap">
+        select distinct
+         t.fd_id dishe_id
+         ,t.fd_name dishe_name
+         ,t.type type
+         ,dd.item_name type_name
+         ,t1.price price
+         ,#{params.mealType} meal_type
+         ,(select item_name from om_data_dict where item_no=#{params.mealType}) meal_type_name
+		from om_base_dishe t
+		left join om_price t1 on t.fd_id=t1.dishe_id and t1.status=30 <!-- and t1.user_type=3001 -->
+		left join om_data_dict dd on t.type=dd.item_no
+		where t.type=#{params.type}
+    </select>
+</mapper>

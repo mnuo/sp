@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwagain.system.base.mapper.OmUserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.hwagain.system.base.entity.OmUser">
+		<id column="fd_id" property="fdId" />
+		<result column="phone" property="phone" />
+		<result column="user_id" property="userId" />
+		<result column="user_code" property="userCode" />
+		<result column="user_name" property="userName" />
+		<result column="type" property="type" />
+        <result column="sex" property="sex" />
+		<result column="register_date" property="registerDate" />
+		<result column="exo_type" property="exoType" />
+		<result column="exo_type_name" property="exoTypeName" />
+		<result column="dept_id" property="deptId" />
+		<result column="dept_name" property="deptName" />
+		<result column="workship_id" property="workshipId" />
+		<result column="workship" property="workship" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="last_update_id" property="lastUpdateId" />
+		<result column="last_update_date" property="lastUpdateDate" />
+	</resultMap>
+
+</mapper>
