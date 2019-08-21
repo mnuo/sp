@@ -1,0 +1,155 @@
+.search-row{
+    font-size: 12px;
+    line-height: 28px;
+}
+.search-row .text-right{
+    padding-right: 8px;
+    white-space: nowrap;
+}
+.text-right {
+    text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.date-pickerwidth>div.el-input__inner{
+  width: 230px;
+}
+.search-button-col{
+    padding-left: 10px;
+}
+.el-main{
+    overflow:hidden;
+}
+.grid-content {
+    border-radius: 0px;
+    min-height: 25px;
+    // margin-left: -10px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height:25px;
+    border: 1px solid rgb(218, 215, 215);
+    background: #e4e7ed;
+    margin-left:5px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+.dialog-pan{
+    border: 1px solid rgb(218, 215, 215);margin:10px 0px 10px 0px;
+    padding: 20px 0 0 0px;
+}
+el-dialog{
+    width:1400px;
+}
+col[name="gutter"][width="0"] {
+  display: none;
+}
+.dialog-pan-title{
+        position: relative;
+}
+.defined-table th{
+  border:1px solid #ccc;
+  padding:3px 0px;
+  height:20px;
+  border-top: 0px;
+}
+.displaynone{
+  display:none;
+}
+.defined-table th.borderzero{
+  border:0px;
+}
+.defined-table{
+  margin-top: 0px;
+  font-size: 12px;
+  border-collapse: collapse;
+  // border: 1px solid #ccc;
+  border-top: 0px;
+}
+.dialog-pan-title div{
+    position: absolute;
+    height: 20px;
+    top: -30px;
+    background: #fff;
+    left: 10px;
+    padding: 0px 10px;
+    line-height: 20px;
+}
+.textarea-bottom{
+    margin-bottom: 15px;
+}
+.el-table_1_column_28>div.cell{
+  padding:0px;
+}
+tr > td button.execute-button.el-button--mini{
+  padding:2px;
+  margin: 0px;
+}
+.el-table__footer-wrapper td>.cell {
+  font-weight: 600;
+  color:#444;
+}
+.input-table tr td div.input-row{
+  text-align: center;
+}
+.input-table tr td div.input-row div.input-item{
+  width:44%;
+}
+.paddingtop20{
+  padding-top: 10px;
+}
+div.textrightcell,.supply-table .el-table__footer tr>td:nth-child(1n+5) .cell{
+  text-align: right;
+  padding-left: 5px;
+  padding-right: 5px;
+
+}
+input[type=number] {  
+  -moz-appearance:textfield;  
+}  
+input[type=number]::-webkit-inner-spin-button,  
+input[type=number]::-webkit-outer-spin-button {  
+  -webkit-appearance: none;  
+  margin: 0;  
+} 
+.addform-pick .el-date-editor.el-input, .addform-pick .el-date-editor.el-input__inner{
+  width: 100%;
+}
+/** 重写eleement默认样式 **/
+.el-table--mini td, .el-table--mini th {
+    padding: 3px 0;
+}
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+tr>td .el-button--mini, .el-button--mini.is-round {
+    padding: 3px 5px;
+}
+.el-dialog__body {
+    padding: 10px 20px 0px 20px;
+}
+.el-dialog__footer{
+    padding: 0 20px 15px;
+    text-align: center;
+}
+.el-dialog__headerbtn{
+    right:10px;
+    top: 15px;
+}
+/**特殊模块使用**/
+#customermanagerDuty,#baseMachine {
+    .el-table td div {
+        width: 100%;
+        /*padding-left: 0px!important;*/
+        /*padding-right:  0px!important;;*/
+      }
+      .el-date-editor.el-input, .el-date-editor.el-input__inner {
+        width: 140px;
+      }
+      .row-top{
+        margin-top:10px;
+      }
+
+}

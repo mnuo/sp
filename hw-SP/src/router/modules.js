@@ -1,0 +1,10 @@
+export const BaseChildren = require('./modules/base').default; //基础资料
+export const DeductChildren = require('./modules/deduct').default; //违约扣款
+export const DepositChildren = require('./modules/deposit').default;//定金管理
+export const DiscountChildren = require('./modules/discount').default;//奖励及优惠计算
+export const OrderChildren = require('./modules/order').default;//订单管理
+export const PolicyChildren = require('./modules/policy').default;//优惠政策管理
+export const PriceChildren = require('./modules/price').default;//价格管理
+export const ProductChildren = require('./modules/product').default;//产品管理
+export const ReconciliationChildren = require('./modules/reconciliation').default;//提货对账
+export const SaledispsalChildren = require('./modules/saledispsal').default;//处理品销售
